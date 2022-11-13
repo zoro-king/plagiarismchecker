@@ -1,6 +1,36 @@
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
+
+
+def checker(file1,file2):
+    #file1=open(file1,"r")
+    #file2=open(file2,"r")
+
+    #text1=list(file1.read())
+    #text2=list(file2.read())
+    
+    #str1=''.join(text1)
+    #str2=''.join(text2)
+
+   
+
+    f1=str(file1.read(),"utf-8")
+    f2=str(file2.read(),"utf-8")
+
+    sent_text1=f1.split('.')
+    sent_text2=f2.split('.')
+    
+    final_list=[]
+    for z in sent_text1:
+        for y in sent_text2:
+            if z == y:
+                final_list.append(z)
+
+
+
+    return final_list
+
 st.set_page_config(page_title="Plagiarism Checker",page_icon=":mag:",layout="wide")
 
 st.subheader("plagirism Checker in python :mag:")
@@ -26,8 +56,23 @@ with st.container():
     st.write("---")
     left_column,right_column = st.columns(2)
     with left_column:
-        st.write("File 1")
+        file1=st.file_uploader('File1',type=["pdf","txt","docx"])
+        file2=st.file_uploader('File2',type=["pdf","txt","docx"])
+        
+        if st.button("process"):
+            st.write(checker(file1,file2))
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     with right_column:
           st_lottie(lottie_coding,height=300,key="coding")
 
