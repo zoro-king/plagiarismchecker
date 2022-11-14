@@ -30,5 +30,4 @@ for z in sent_text1:
             final_list.append(z)
 
 
-
 print(final_list)

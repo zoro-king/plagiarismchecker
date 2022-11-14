@@ -60,7 +60,7 @@ with st.container():
         file2=st.file_uploader('File2',type=["pdf","txt","docx"])
         
         if st.button("process"):
-            st.write(checker(file1,file2))
+            st.write(str(checker(file1,file2)))
 
 
     
