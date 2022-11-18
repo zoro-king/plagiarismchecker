@@ -4,17 +4,6 @@ from streamlit_lottie import st_lottie
 
 
 def checker(file1,file2):
-    #file1=open(file1,"r")
-    #file2=open(file2,"r")
-
-    #text1=list(file1.read())
-    #text2=list(file2.read())
-    
-    #str1=''.join(text1)
-    #str2=''.join(text2)
-
-   
-
     f1=str(file1.read(),"utf-8")
     f2=str(file2.read(),"utf-8")
 
@@ -62,17 +51,6 @@ with st.container():
         if st.button("process"):
             st.text(checker(file1,file2))
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     with right_column:
           st_lottie(lottie_coding,height=300,key="coding")
 
