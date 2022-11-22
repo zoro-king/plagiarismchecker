@@ -7,8 +7,12 @@ def checker(file1,file2):
     f1=str(file1.read(),"utf-8")
     f2=str(file2.read(),"utf-8")
 
-    sent_text1=f1.split('.')
-    sent_text2=f2.split('.')
+    str1=''.join(f1)
+    str2=''.join(f2)
+
+    sent_text1=str1.split('.')
+    sent_text2=str2.split('.')
+
     
     final_list=[]
     for z in sent_text1:
@@ -49,7 +53,11 @@ with st.container():
         file2=st.file_uploader('File2',type=["pdf","txt","docx"])
         
         if st.button("process"):
-            st.text(checker(file1,file2))
+            lis=checker(file1,file2)
+            s=''
+            for i in lis:
+                s += "- " + i + "\n"
+            st.markdown(s)
 
     with right_column:
           st_lottie(lottie_coding,height=300,key="coding")
